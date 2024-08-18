@@ -8,8 +8,18 @@ export default {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      colors: {
+        black: '#000000',
+        spaceCadet: '#14213d',
+        orange: '#fca311',
+        platinum: '#e5e5e5',
+        white: '#ffffff',
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('daisyui'),
+  ],
 }
 
