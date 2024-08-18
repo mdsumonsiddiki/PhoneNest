@@ -10,7 +10,7 @@ const Nav = () => {
 
                 <div className="navbar-end space-x-2">
                     <Link to='/singin' className=" px-3 md:px-3 lg:px-5  font-medium md:text-lg md:tracking-wide py-1 md:py-1.5 rounded-full text-white bg-orange ">SingIn</Link>
-                    <Link className=" px-3 md:px-3 hidden md:block lg:px-5 font-medium md:text-lg md:tracking-wide py-1 md:py-1.5 rounded-full text-white  bg-orange ">SingUp</Link>
+                    <Link to='/singup' className=" px-3 md:px-3 hidden md:block lg:px-5 font-medium md:text-lg md:tracking-wide py-1 md:py-1.5 rounded-full text-white  bg-orange ">SingUp</Link>
                     
                 </div>
             </div>
