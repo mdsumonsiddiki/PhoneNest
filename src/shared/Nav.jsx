@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Nav = () => {
     return (
-        <div className="bg-spaceCadet/90">
+        <div className="bg-spaceCadet/90 shadow-xl">
             <div className="navbar container">
                 <div className="navbar-start">
                     <Link to='/' className="text-orange font-bold text-xl md:text-3xl lg:text-4xl">PhoneNest</Link>
