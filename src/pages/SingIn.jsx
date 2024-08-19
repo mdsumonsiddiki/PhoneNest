@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import GoogleLogin from "../components/GoogleLogin";
 
 
 const SingIn = () => {
@@ -9,6 +10,9 @@ const SingIn = () => {
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-spaceCadet">
                     Sign in to your account
                 </h2>
+            </div>
+            <div className="mt-4">
+                <GoogleLogin/>
             </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">

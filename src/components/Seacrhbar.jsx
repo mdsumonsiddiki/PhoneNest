@@ -1,8 +1,8 @@
 
 const Seacrhbar = () => {
     return (
-        <div className="flex items-center gap-4 bg-spaceCadet/90 p-3 rounded-xl">
-            <div className="w-9/12">
+        <div className="lg:flex items-center lg:gap-4 bg-spaceCadet/90 p-3 rounded-xl">
+            <div className="lg:w-9/12">
                 <label
                     className="mx-auto relative bg-white flex flex-col  md:flex-row items-center justify-center border border-orange py-1 px-2 rounded-md gap-2 shadow-2xl focus-within:border-orange"
                     htmlFor="search-bar">
@@ -37,7 +37,7 @@ const Seacrhbar = () => {
                     </button>
                 </label>
             </div>
-            <div className="w-3/12">
+            <div className="lg:w-3/12 mt-2 lg:mt-0">
                 <select className='py-3 px-4 w-full  text-xl font-semibold rounded-md border-2 border-orange outline-none focus:border-indigo-200-600 focus:placeholder:text-black' name="sort" id="sort">
                     <option value='' >Price Default</option>
                     <option className="text-xl font-semibold" value="Yes">Price (Low to High)</option>

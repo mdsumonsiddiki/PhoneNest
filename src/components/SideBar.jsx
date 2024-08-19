@@ -7,7 +7,7 @@ import PriceRange from "./PriceRange";
 const SideBar = () => {
   
     return (
-       <div className="space-y-8">
+       <div className="space-y-4 mb-4 md:mb-0 md:space-y-8">
         <PriceRange/>
         <Category/>
         <div>

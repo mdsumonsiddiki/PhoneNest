@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import GoogleLogin from "../components/GoogleLogin";
 
 const SingUp = () => {
     return (
@@ -6,9 +7,10 @@ const SingUp = () => {
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
 
                 <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-spaceCadet">
-                Create Account
+                    Create Account
                 </h2>
             </div>
+         <GoogleLogin/>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
                 <form action="#" method="POST" className="space-y-6">
@@ -47,7 +49,7 @@ const SingUp = () => {
                             <label htmlFor="password" className="block text-lg font-medium leading-6 text-spaceCadet">
                                 Password
                             </label>
-                           
+
                         </div>
                         <div className="mt-2">
                             <input
