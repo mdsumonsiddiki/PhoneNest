@@ -19,12 +19,6 @@ const Home = () => {
             return data
         },
     })
-    const handleSearch = (e) => {
-        e.preventDefault();
-        const searchValue = e.target.search.value;
-        setSearch(searchValue);
-    }
-   
     const { data: productCount = 0 } = useQuery({
         queryKey: ['product-count'],
         queryFn: async () => {
@@ -41,6 +35,9 @@ const Home = () => {
         setCurrentPage(value)
 
     }
+
+
+
     return (
         <div className="bg-platinum min-h-screen pt-8 px-2 ">
             <div className="container md:flex md:gap-8">
@@ -48,7 +45,7 @@ const Home = () => {
                     <SideBar />
                 </div>
                 <div className="md:w-9/12">
-                    <Seacrhbar handleSeacrch={handleSearch} />
+                    <Seacrhbar  setSearch={setSearch} />
                     <MainItem
                         products={products}
                         isLoading={isLoading}

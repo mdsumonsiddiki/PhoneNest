@@ -1,22 +1,26 @@
 import PropTypes from 'prop-types';
 
-const Seacrhbar = ({handleSearch}) => {
- 
+const Seacrhbar = ({setSearch}) => {
 
-    const handleSort = (e) =>{
+    const handleSearch = (e) => {
+        e.preventDefault();
+        const searchValue = e.target.search.value;
+        setSearch(searchValue)
+    }
+    const handleSort = (e) => {
         console.log(e);
     }
     return (
         <div className="lg:flex items-center lg:gap-4 bg-spaceCadet/90 p-3 rounded-xl">
             <div className="lg:w-9/12">
                 <form onSubmit={handleSearch}>
-                    <label
+                    <div
                         className="mx-auto relative bg-white flex flex-col  md:flex-row items-center justify-center border border-orange py-1 px-2 rounded-md gap-2 shadow-2xl focus-within:border-orange"
                         htmlFor="search-bar">
-                        <input name="search" id="search-bar" placeholder="your keyword here"
+                        <input  name="search" id="search-bar" placeholder="your keyword here"
                             className="px-4 py-2 w-full rounded-md flex-1 outline-none bg-white" />
                         <button
-                        type="submit"
+
                             className="w-full md:w-auto px-6 py-3 bg-orange border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all disabled:opacity-70">
 
                             <div className="relative">
@@ -43,7 +47,7 @@ const Seacrhbar = ({handleSearch}) => {
                             </div>
 
                         </button>
-                    </label>
+                    </div>
                 </form>
             </div>
             <div className="lg:w-3/12 mt-2 lg:mt-0">
@@ -58,6 +62,6 @@ const Seacrhbar = ({handleSearch}) => {
     );
 };
 Seacrhbar.propTypes = {
-    handleSearch: PropTypes.func,
+    setSearch: PropTypes.any,
 }
 export default Seacrhbar;
