@@ -1,7 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import GoogleLogin from "../components/GoogleLogin";
+import UseAuth from "../hook/UseAuth";
+import toast from "react-hot-toast";
 
 const SingUp = () => {
+    const { createUserWithEmailPass, userProfileUpdate, setLoading } = UseAuth()
+    const navigate = useNavigate();
+
+
+    const handleSingUp = async (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        try {
+            setLoading(true)
+            await createUserWithEmailPass(email, password)
+            await userProfileUpdate(name)
+            toast.success('Signup Successful')
+            setLoading(false)
+            navigate('/')
+
+        } catch (err) {
+            toast.error(err.message)
+            setLoading(false)
+        }
+
+    }
+
+
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -10,10 +39,12 @@ const SingUp = () => {
                     Create Account
                 </h2>
             </div>
-         <GoogleLogin/>
+            <div className="mt-4">
+                <GoogleLogin />
+            </div>
 
             <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form action="#" method="POST" className="space-y-6">
+                <form onSubmit={handleSingUp} className="space-y-6">
                     <div>
                         <label htmlFor="email" className="block text-lg font-medium leading-6 text-spaceCadet">
                             Full Name
