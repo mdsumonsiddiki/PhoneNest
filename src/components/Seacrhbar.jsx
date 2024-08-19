@@ -1,21 +1,15 @@
+import PropTypes from 'prop-types';
 
-const Seacrhbar = () => {
-    const handleSeacrch = (e)=>{
-        e.preventDefault();
-        const form = e.target;
-        const search = form.search.value;
-        console.log(
-            search
-        );
-    }
+const Seacrhbar = ({handleSearch}) => {
+ 
 
     const handleSort = (e) =>{
-console.log(e.target.value);
+        console.log(e);
     }
     return (
         <div className="lg:flex items-center lg:gap-4 bg-spaceCadet/90 p-3 rounded-xl">
             <div className="lg:w-9/12">
-                <form onSubmit={handleSeacrch}>
+                <form onSubmit={handleSearch}>
                     <label
                         className="mx-auto relative bg-white flex flex-col  md:flex-row items-center justify-center border border-orange py-1 px-2 rounded-md gap-2 shadow-2xl focus-within:border-orange"
                         htmlFor="search-bar">
@@ -63,5 +57,7 @@ console.log(e.target.value);
         </div>
     );
 };
-
+Seacrhbar.propTypes = {
+    handleSearch: PropTypes.func,
+}
 export default Seacrhbar;

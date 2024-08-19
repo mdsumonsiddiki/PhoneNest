@@ -32,6 +32,6 @@ const Card = ({ product }) => {
     );
 };
 Card.propTypes = {
-    product: PropTypes.array,
+    product: PropTypes.object,
 }
 export default Card;

@@ -1,26 +1,17 @@
-import { useEffect, useState } from "react";
-import useAxiosCommon from "../hook/useAxiosCommon";
+
 import Card from "./Card";
 import Pagination from "./Pagination";
 import Loader from "./Loader";
 
+import PropTypes from 'prop-types';
 
-const MainItem = () => {
-    const [products, setProducts] = useState([])
-    const axiosCommon = useAxiosCommon()
-
-    useEffect(() => {
-        const allServiceData = async () => {
-            const { data } = await axiosCommon(`/product`);
-            setProducts(data);
-        };
-        allServiceData();
-    }, [axiosCommon]);
+const MainItem = ({products, isLoading, handlePaginationButton, pages, currentPage, numberOfPages}) => {
+   
 
     return (
         <div className="pb-10">
             {
-                !products && <div className="flex items-center justify-center my-6 md:my-32">
+                isLoading && <div className="flex items-center justify-center my-6 md:my-32">
                     <Loader height='h-12' width='w-12' />
                 </div>
             }
@@ -30,10 +21,22 @@ const MainItem = () => {
                 }
             </div>
             <div>
-                <Pagination />
+                <Pagination
+                 handlePaginationButton={handlePaginationButton}
+                 pages={pages}
+                 currentPage={currentPage}
+                 numberOfPages={numberOfPages}
+                 />
             </div>
         </div>
     );
 };
-
+MainItem.propTypes = {
+    products: PropTypes.array,
+    isLoading: PropTypes.bool,
+    handlePaginationButton:PropTypes.func,
+    pages:PropTypes.array,
+    currentPage:PropTypes.number,
+    numberOfPages:PropTypes.number,
+}
 export default MainItem;

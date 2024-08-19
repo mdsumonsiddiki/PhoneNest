@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-let pages = [1,2,3,4,]
-const Pagination = ({handlePaginationButton, currentPage, numberOfPages }) => {
+
+const Pagination = ({handlePaginationButton, pages, currentPage, numberOfPages }) => {
     return (
         <div className='flex justify-center mt-12'>
             <button
