@@ -3,6 +3,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home";
 import SingIn from "../pages/SingIn";
 import SingUp from "../pages/SingUp";
+import PrivateRoute from "../routers/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
       children: [
         {
           index: true,
-          element: <Home/>
+          element: <PrivateRoute><Home/></PrivateRoute>
         },
         {
           path: '/singin',
