@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Seacrhbar = ({setSearch}) => {
+const Seacrhbar = ({setSearch, setShort}) => {
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -8,7 +8,7 @@ const Seacrhbar = ({setSearch}) => {
         setSearch(searchValue)
     }
     const handleSort = (e) => {
-        console.log(e);
+        setShort(e.target.value)
     }
     return (
         <div className="lg:flex items-center lg:gap-4 bg-spaceCadet/90 p-3 rounded-xl">
@@ -51,7 +51,7 @@ const Seacrhbar = ({setSearch}) => {
                 </form>
             </div>
             <div className="lg:w-3/12 mt-2 lg:mt-0">
-                <select onChange={handleSort} className='py-3 px-4 w-full  text-xl font-semibold rounded-md border-2 border-orange outline-none focus:border-indigo-200-600 focus:placeholder:text-black' name="sort" id="sort">
+                <select onChange={handleSort} className='py-3 px-4 w-full  text-lg font-semibold rounded-md border-2 border-orange outline-none focus:border-indigo-200-600 focus:placeholder:text-black' name="sort" id="sort">
                     <option value='default' >Price Default</option>
                     <option className="text-xl font-semibold" value="lowToHigh">Price (Low to High)</option>
                     <option className="text-xl font-semibold" value="highToLow">Price (High to Low)</option>
@@ -63,5 +63,6 @@ const Seacrhbar = ({setSearch}) => {
 };
 Seacrhbar.propTypes = {
     setSearch: PropTypes.any,
+    setShort: PropTypes.func,
 }
 export default Seacrhbar;

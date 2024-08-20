@@ -15,8 +15,8 @@ const Card = ({ product }) => {
                     alt="phone"
                     className="rounded-xl h-full w-full object-cover" />
             </figure>
-            <div className='flex justify-between flex-col h-full'>
-                <div className="px-5 py-4">
+            <div className='flex justify-between flex-col h-full mt-4'>
+                <div className="px-5 space-y-4">
                     <h2 className="text-2xl text-spaceCadet font-medium">{product.ProductName}</h2>
                     <p className='text-lg text-spaceCadet/90'>{product.Description}</p>
                     <h2 className='text-spaceCadet text-xl font-medium'>Category: <span className='font-normal'>{product.Category}</span></h2>
@@ -24,7 +24,7 @@ const Card = ({ product }) => {
                     <h2 className='text-spaceCadet text-xl font-medium'>Added on: <span className='font-normal'>{product.ProductCreationDateTime}</span></h2>
 
                 </div>
-                <div className="mt-2 p-4">
+                <div className="pb-4 px-4">
                     <button className="bg-orange px-3 py-2 font-medium text-xl text-white rounded-md">Buy Now</button>
                 </div>
             </div>

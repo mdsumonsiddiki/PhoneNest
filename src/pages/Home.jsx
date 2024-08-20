@@ -10,12 +10,14 @@ const Home = () => {
     // eslint-disable-next-line no-unused-vars
     const [itemsPerPage, setItemsPerPage] = useState(6)
     const [currentPage, setCurrentPage] = useState(1);
-    const [search, setSearch] = useState('')
+    const [search, setSearch] = useState('');
+    const [sort,setShort] = useState(null)
 
+  
     const { data: products = [], isLoading } = useQuery({
-        queryKey: ['allproducts', currentPage, search],
+        queryKey: ['allproducts', currentPage, search, sort],
         queryFn: async () => {
-            const { data } = await axiosCommon(`/products?page=${currentPage}&size=${itemsPerPage}&search=${search}`)
+            const { data } = await axiosCommon(`/products?page=${currentPage}&size=${itemsPerPage}&search=${search}&sort=${sort}`)
             return data
         },
     })
@@ -45,7 +47,7 @@ const Home = () => {
                     <SideBar />
                 </div>
                 <div className="md:w-9/12">
-                    <Seacrhbar  setSearch={setSearch} />
+                    <Seacrhbar  setSearch={setSearch} setShort={setShort} />
                     <MainItem
                         products={products}
                         isLoading={isLoading}
