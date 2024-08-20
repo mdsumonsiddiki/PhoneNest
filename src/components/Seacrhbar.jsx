@@ -52,7 +52,9 @@ const Seacrhbar = ({setSearch, setShort}) => {
             </div>
             <div className="lg:w-3/12 mt-2 lg:mt-0">
                 <select onChange={handleSort} className='py-3 px-4 w-full  text-lg font-semibold rounded-md border-2 border-orange outline-none focus:border-indigo-200-600 focus:placeholder:text-black' name="sort" id="sort">
-                    <option value='default' >Price Default</option>
+                    <option value='default' >Sort By</option>
+                    <option className="text-xl font-semibold" value="new">Newest First</option>
+                    <option className="text-xl font-semibold" value="old">Oldest First</option>
                     <option className="text-xl font-semibold" value="lowToHigh">Price (Low to High)</option>
                     <option className="text-xl font-semibold" value="highToLow">Price (High to Low)</option>
                 </select>
