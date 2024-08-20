@@ -1,9 +1,8 @@
-import { useState } from "react";
+import PropTypes from 'prop-types';
 
 
-const PriceRange = () => {
-  const [minPrice, setMinPrice] = useState(0);
-  const [maxPrice, setMaxPrice] = useState(1000);
+const PriceRange = ({setMinPrice, setMaxPrice, minPrice, maxPrice}) => {
+
 
   const handleMinPriceChange = (e) => {
     setMinPrice(e.target.value);
@@ -12,7 +11,6 @@ const PriceRange = () => {
   const handleMaxPriceChange = (e) => {
     setMaxPrice(e.target.value);
   };
-  console.log(minPrice,maxPrice );
   return (
     <div className="w-full max-w-md mx-auto p-4 bg-white rounded-lg">
       <h2 className="text-lg font-semibold text-spaceCadet mb-4">Filter by Price Range</h2>
@@ -53,4 +51,10 @@ const PriceRange = () => {
   );
 };
 
+PriceRange.propTypes = {
+  setMinPrice: PropTypes.number,
+  setMaxPrice: PropTypes.number,
+  minPrice: PropTypes.number,
+  maxPrice: PropTypes.number,
+}
 export default PriceRange;

@@ -12,12 +12,14 @@ const Home = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [search, setSearch] = useState('');
     const [sort,setShort] = useState(null)
-
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(0);
+    const [selectedCategory, setSelectedCategory] = useState('');
   
     const { data: products = [], isLoading } = useQuery({
         queryKey: ['allproducts', currentPage, search, sort],
         queryFn: async () => {
-            const { data } = await axiosCommon(`/products?page=${currentPage}&size=${itemsPerPage}&search=${search}&sort=${sort}`)
+            const { data } = await axiosCommon(`/products?page=${currentPage}&size=${itemsPerPage}&search=${search}&sort=${sort}&minPrice=${minPrice}&maxPrice=${maxPrice}&selectedCategory=${selectedCategory}`)
             return data
         },
     })
@@ -37,17 +39,19 @@ const Home = () => {
         setCurrentPage(value)
 
     }
-
-
-
+    const hsndleSidebarSubmit =(priceMin, priceMax, cate)=>{
+        setMinPrice(priceMax);
+        setMaxPrice(priceMin);
+        setSelectedCategory(cate)
+    }
     return (
         <div className="bg-platinum min-h-screen pt-8 px-2 ">
             <div className="container md:flex md:gap-8">
                 <div className="md:w-3/12">
-                    <SideBar />
+                    <SideBar hsndleSidebarSubmit={hsndleSidebarSubmit} />
                 </div>
                 <div className="md:w-9/12">
-                    <Seacrhbar  setSearch={setSearch} setShort={setShort} />
+                    <Seacrhbar  setSearch={setSearch} setShort={setShort}   />
                     <MainItem
                         products={products}
                         isLoading={isLoading}

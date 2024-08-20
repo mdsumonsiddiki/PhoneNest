@@ -1,16 +1,16 @@
-import { useState } from "react";
 
-const categories = ['All', 'Electronics', 'Fashion', 'Books', 'Home Appliances'];
+import PropTypes from 'prop-types';
 
-const Category = () => {
-    const [selectedCategory, setSelectedCategory] = useState('');
+const categories = ['All', 'Mobile', 'GlassProtector', 'Backcover', 'Earphone', 'Accessories', 'Charger', 'Battery'];
+
+const Category = ({setSelectedCategory, selectedCategory}) => {
+    
 
     const handleCategoryChange = (category) => {
       setSelectedCategory(category);
      
     };
-
-    console.log(selectedCategory);
+  
     return (
         <div className="w-full max-w-md mx-auto p-4  bg-white rounded-lg">
       <h2 className="text-lg font-semibold mb-4">Filter by Category</h2>
@@ -32,5 +32,8 @@ const Category = () => {
     </div>
     );
 };
-
+Category.propTypes = {
+  setSelectedCategory: PropTypes.func,
+  selectedCategory: PropTypes.string,
+}
 export default Category;
